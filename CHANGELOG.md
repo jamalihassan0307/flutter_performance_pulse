@@ -1,3 +1,26 @@
+## 1.0.4
+
+* Performance Optimizations:
+  - Improved memory management in disk tracking
+  - Reduced CPU overhead in performance monitoring
+  - Optimized chart rendering for smoother updates
+* Enhanced Error Handling:
+  - Better error recovery in disk operations
+  - Improved error messages for debugging
+  - Added fallback mechanisms for platform-specific features
+* UI Improvements:
+  - Added tooltips for performance metrics
+  - Enhanced chart responsiveness
+  - Improved dark mode compatibility
+* Documentation:
+  - Added comprehensive API documentation
+  - Updated example app with best practices
+  - Added troubleshooting guide
+* Bug Fixes:
+  - Fixed memory leak in chart updates
+  - Resolved disk space calculation issues
+  - Fixed theme inheritance issues
+
 ## 1.0.3
 
 * Added comprehensive disk usage monitoring:
