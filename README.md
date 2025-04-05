@@ -42,6 +42,13 @@ A real-time, in-app performance monitoring toolkit for Flutter. Designed to help
   - Device specifications
   - System resource usage
 
+- - 💾 **Disk Usage Monitor**
+  - Total storage space
+  - Free storage space
+  - Used storage space
+  - App-specific storage usage
+  - Usage percentage tracking
+
 ## Getting Started 🚀
 
 Add Flutter Pulse to your pubspec.yaml:
