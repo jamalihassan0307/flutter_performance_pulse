@@ -70,14 +70,16 @@ A real-time, in-app performance monitoring toolkit for Flutter. Designed to help
 ## Features ✨
 
 - 📊 **Real-time FPS & Memory Usage Tracker**
-  - Live FPS monitoring
+  - Live FPS monitoring with tooltips
   - Heap memory usage tracking
   - Visual performance graphs
+  - Optimized chart rendering
 
 - 🚀 **CPU & GPU Monitoring**
   - CPU usage per core
   - GPU rendering statistics
   - Frame build time analysis
+  - Reduced monitoring overhead
 
 - 💾 **Disk Usage Monitor**
   - Total storage space tracking
@@ -86,21 +88,25 @@ A real-time, in-app performance monitoring toolkit for Flutter. Designed to help
   - Visual disk usage graphs
   - Configurable warning thresholds
   - Automatic 5-second refresh
+  - Enhanced error recovery
 
 - 🛠️ **App Startup Time Analyzer**
   - Cold start measurements
   - Warm start tracking
   - First frame render timing
+  - Performance optimization tips
 
 - 🔍 **Network Request Logger**
   - API request monitoring
   - Response time tracking
   - Error logging
+  - Detailed metrics analysis
 
 - 📦 **Battery & Device Info**
   - Battery status monitoring
   - Device specifications
   - System resource usage
+  - Platform-specific features
 
 ## Getting Started 🚀
 
@@ -108,7 +114,7 @@ Add Flutter Pulse to your pubspec.yaml:
 
 ```yaml
 dependencies:
-  flutter_performance_pulse: ^1.0.3
+  flutter_performance_pulse: ^1.0.4
 ```
 
 ## Usage Examples 📱
