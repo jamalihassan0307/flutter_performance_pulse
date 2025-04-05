@@ -6,8 +6,6 @@ repository: https://github.com/jamalihassan0307/flutter_performance_pulse
 documentation: https://github.com/jamalihassan0307/flutter_performance_pulse/blob/main/README.md
 issue_tracker: https://github.com/jamalihassan0307/flutter_performance_pulse/issues
 
-authors:
-  - Hassan Jamali <jamalihassan0307@gmail.com>
 
 environment:
   sdk: ^3.5.3
