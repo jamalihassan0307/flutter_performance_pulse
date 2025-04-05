@@ -1,6 +1,6 @@
 name: flutter_performance_pulse
-description: "A powerful, real-time performance monitoring toolkit for Flutter apps. Track FPS, memory, CPU, network, and battery metrics with beautiful visualizations. Built by jamalihassan0307"
-version: 1.0.2
+description: "A powerful, real-time performance monitoring toolkit for Flutter apps. Track FPS, memory, CPU, network, battery, and disk metrics with beautiful visualizations. Built by jamalihassan0307"
+version: 1.0.3
 homepage: https://github.com/jamalihassan0307/flutter_performance_pulse
 repository: https://github.com/jamalihassan0307/flutter_performance_pulse
 documentation: https://github.com/jamalihassan0307/flutter_performance_pulse/blob/main/README.md
