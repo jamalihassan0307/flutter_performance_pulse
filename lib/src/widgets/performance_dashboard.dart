@@ -66,30 +66,26 @@ class _PerformanceDashboardState extends State<PerformanceDashboard> {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      right: 16,
-      bottom: 16,
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: widget.theme.backgroundColor,
-          borderRadius: BorderRadius.circular(8),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.2),
-              blurRadius: 8,
-              offset: const Offset(0, 2),
-            ),
-          ],
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (widget.showFPS) _buildFPSChart(),
-            if (widget.showCPU) _buildCPUChart(),
-          ],
-        ),
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: widget.theme.backgroundColor,
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.2),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (widget.showFPS) _buildFPSChart(),
+          if (widget.showCPU) _buildCPUChart(),
+        ],
       ),
     );
   }
