@@ -1,7 +1,8 @@
 name: flutter_pulse
-description: "A new Flutter package project."
+description: "A real-time, in-app performance monitoring toolkit for Flutter. Helps developers detect bottlenecks, debug in production, and ensure smooth user experience across platforms."
 version: 0.0.1
-homepage:
+homepage: https://github.com/yourusername/flutter_pulse
+repository: https://github.com/yourusername/flutter_pulse
 
 environment:
   sdk: ^3.5.3
@@ -10,6 +11,18 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  # For charts and visualizations
+  fl_chart: ^0.66.2
+  # For isolate computations
+  compute: ^1.0.2
+  # For device info
+  device_info_plus: ^9.1.2
+  # For battery info
+  battery_plus: ^5.0.3
+  # For network monitoring
+  dio: ^5.4.1
+  # For local storage
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:
