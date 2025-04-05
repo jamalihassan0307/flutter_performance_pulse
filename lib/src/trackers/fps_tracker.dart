@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:flutter/scheduler.dart';
 import 'base_tracker.dart';
 
