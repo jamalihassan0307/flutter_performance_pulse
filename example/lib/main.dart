@@ -110,7 +110,8 @@ class _MyHomePageState extends State<MyHomePage> {
       final testFile = File('${appDir.path}/test_file.txt');
 
       // Generate a large string
-      final largeString = List.generate(1024 * 1024, (i) => 'A').join(); // 1MB string
+      final largeString =
+          List.generate(1024 * 1024, (i) => 'A').join(); // 1MB string
 
       // Write to file
       await testFile.writeAsString(largeString);
@@ -118,7 +119,8 @@ class _MyHomePageState extends State<MyHomePage> {
       // Read file stats
       final fileStats = await testFile.stat();
       setState(() {
-        _diskStatus = 'File size: ${(fileStats.size / 1024).toStringAsFixed(2)} KB';
+        _diskStatus =
+            'File size: ${(fileStats.size / 1024).toStringAsFixed(2)} KB';
       });
 
       // Clean up
