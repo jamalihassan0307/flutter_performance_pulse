@@ -1,6 +1,5 @@
-
-name: flutter_pulse_example
-description: Example app for Flutter Pulse package
+name: flutter_performance_pulse_example
+description: Example app for Flutter Performance Pulse package
 publish_to: none
 
 
@@ -12,7 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_pulse:
+  flutter_performance_pulse:
     path: ../
   dio: ^5.4.1
 
