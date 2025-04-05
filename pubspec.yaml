@@ -26,6 +26,7 @@ dependencies:
   dio: ^5.4.1
   # For local storage
   shared_preferences: ^2.2.2
+  path_provider: ^2.1.2
 
 dev_dependencies:
   flutter_test:
