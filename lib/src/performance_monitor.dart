@@ -3,14 +3,14 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter_pulse/src/config/monitor_config.dart';
-import 'package:flutter_pulse/src/models/log_level.dart';
-import 'package:flutter_pulse/src/trackers/battery_tracker.dart';
-import 'package:flutter_pulse/src/trackers/cpu_tracker.dart';
-import 'package:flutter_pulse/src/trackers/device_info_tracker.dart';
-import 'package:flutter_pulse/src/trackers/fps_tracker.dart';
-import 'package:flutter_pulse/src/trackers/memory_tracker.dart';
-import 'package:flutter_pulse/src/trackers/network_tracker.dart';
+import 'package:flutter_performance_pulse/src/config/monitor_config.dart';
+import 'package:flutter_performance_pulse/src/models/log_level.dart';
+import 'package:flutter_performance_pulse/src/trackers/battery_tracker.dart';
+import 'package:flutter_performance_pulse/src/trackers/cpu_tracker.dart';
+import 'package:flutter_performance_pulse/src/trackers/device_info_tracker.dart';
+import 'package:flutter_performance_pulse/src/trackers/fps_tracker.dart';
+import 'package:flutter_performance_pulse/src/trackers/memory_tracker.dart';
+import 'package:flutter_performance_pulse/src/trackers/network_tracker.dart';
 
 /// The main performance monitoring class
 class PerformanceMonitor {
