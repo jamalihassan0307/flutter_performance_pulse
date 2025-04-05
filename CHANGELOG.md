@@ -1,3 +1,12 @@
+## 1.0.2
+
+* Enhanced dashboard UI with icons and better visualization
+* Fixed chart rendering issues
+* Improved performance monitoring accuracy
+* Added smooth transitions for performance metrics
+* Reduced dashboard size for better integration
+* Updated documentation with comprehensive usage examples
+
 ## 1.0.1
 
 * Performance improvements and optimizations
