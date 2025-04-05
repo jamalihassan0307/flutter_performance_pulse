@@ -104,4 +104,4 @@ class PerformanceMonitor {
     _isInitialized = false;
     // Dispose trackers
   }
-} 
+}

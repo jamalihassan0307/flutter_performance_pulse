@@ -21,7 +21,8 @@ class FpsTracker extends BaseTracker {
   late DateTime _lastSecond;
 
   /// Creates a new FPS tracker
-  FpsTracker({int warningThreshold = 45}) : _warningThreshold = warningThreshold;
+  FpsTracker({int warningThreshold = 45})
+      : _warningThreshold = warningThreshold;
 
   @override
   void onStart() {
@@ -51,4 +52,4 @@ class FpsTracker extends BaseTracker {
       _lastSecond = now;
     }
   }
-} 
+}

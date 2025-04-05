@@ -49,4 +49,4 @@ class CpuTracker extends BaseTracker {
     // Platform-specific implementation needed
     return 1;
   }
-} 
+}

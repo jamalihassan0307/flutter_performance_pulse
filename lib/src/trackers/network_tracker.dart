@@ -91,7 +91,9 @@ class NetworkTracker extends BaseTracker {
       method: error.requestOptions.method,
       statusCode: error.response?.statusCode,
       duration: endTime - startTime,
-      responseSize: error.response != null ? _calculateResponseSize(error.response!.data) : 0,
+      responseSize: error.response != null
+          ? _calculateResponseSize(error.response!.data)
+          : 0,
       hasError: true,
       errorMessage: error.message,
     );
@@ -125,4 +127,4 @@ class NetworkTracker extends BaseTracker {
     _dio.close();
     _requests.clear();
   }
-} 
+}

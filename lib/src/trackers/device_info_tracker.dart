@@ -75,7 +75,8 @@ class DeviceInfoTracker extends BaseTracker {
       addData(DeviceData(
         model: info.computerName,
         os: 'Windows',
-        osVersion: '${info.majorVersion}.${info.minorVersion}.${info.buildNumber}',
+        osVersion:
+            '${info.majorVersion}.${info.minorVersion}.${info.buildNumber}',
         manufacturer: 'Unknown',
       ));
     } else if (Platform.isLinux) {
@@ -95,4 +96,4 @@ class DeviceInfoTracker extends BaseTracker {
       ));
     }
   }
-} 
+}

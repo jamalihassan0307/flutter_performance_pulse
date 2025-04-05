@@ -48,4 +48,4 @@ class BatteryTracker extends BaseTracker {
   void _onBatteryStateChanged(BatteryState state) {
     _updateBatteryInfo();
   }
-} 
+}

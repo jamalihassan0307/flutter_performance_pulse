@@ -72,4 +72,4 @@ class DashboardTheme {
       chartFillColor: chartFillColor ?? this.chartFillColor,
     );
   }
-} 
+}

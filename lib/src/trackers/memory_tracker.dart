@@ -47,4 +47,4 @@ class MemoryTracker extends BaseTracker {
     // you would use platform-specific methods to get accurate memory usage
     return 0;
   }
-} 
+}

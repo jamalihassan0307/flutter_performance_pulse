@@ -22,4 +22,4 @@ enum LogLevel {
   bool includes(LogLevel other) {
     return index <= other.index;
   }
-} 
+}

@@ -3,7 +3,8 @@ import 'dart:async';
 /// Base class for all performance trackers
 abstract class BaseTracker {
   bool _isTracking = false;
-  final StreamController<dynamic> _controller = StreamController<dynamic>.broadcast();
+  final StreamController<dynamic> _controller =
+      StreamController<dynamic>.broadcast();
 
   /// Stream of tracker data
   Stream<dynamic> get stream => _controller.stream;
@@ -46,4 +47,4 @@ abstract class BaseTracker {
     if (!_isTracking) return;
     _controller.add(data);
   }
-} 
+}

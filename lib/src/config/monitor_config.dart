@@ -70,12 +70,15 @@ class MonitorConfig {
       trackStartup: trackStartup ?? this.trackStartup,
       interceptNetwork: interceptNetwork ?? this.interceptNetwork,
       fpsWarningThreshold: fpsWarningThreshold ?? this.fpsWarningThreshold,
-      memoryWarningThreshold: memoryWarningThreshold ?? this.memoryWarningThreshold,
-      enableNetworkMonitoring: enableNetworkMonitoring ?? this.enableNetworkMonitoring,
-      enableBatteryMonitoring: enableBatteryMonitoring ?? this.enableBatteryMonitoring,
+      memoryWarningThreshold:
+          memoryWarningThreshold ?? this.memoryWarningThreshold,
+      enableNetworkMonitoring:
+          enableNetworkMonitoring ?? this.enableNetworkMonitoring,
+      enableBatteryMonitoring:
+          enableBatteryMonitoring ?? this.enableBatteryMonitoring,
       enableDeviceInfo: enableDeviceInfo ?? this.enableDeviceInfo,
       logLevel: logLevel ?? this.logLevel,
       exportLogs: exportLogs ?? this.exportLogs,
     );
   }
-} 
+}
