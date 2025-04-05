@@ -1,3 +1,27 @@
+## 1.0.5
+
+* Documentation Enhancements:
+  - Added comprehensive visual guides
+  - Updated package screenshots and demo images
+  - Enhanced API documentation with more examples
+  - Added detailed implementation guides
+  - Improved troubleshooting section
+* Visual Improvements:
+  - Updated package branding and logo
+  - Enhanced dashboard aesthetics
+  - Added new theme variations
+  - Improved chart visualizations
+* Performance Dashboard Updates:
+  - Added customizable chart intervals
+  - Enhanced metric tooltips
+  - Improved data visualization
+  - Added export functionality for metrics
+* Example App Enhancements:
+  - Added more usage scenarios
+  - Improved demo implementations
+  - Added advanced configuration examples
+  - Enhanced error handling demonstrations
+
 ## 1.0.4
 
 * Performance Optimizations:
