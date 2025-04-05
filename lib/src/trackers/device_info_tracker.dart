@@ -56,9 +56,9 @@ class DeviceInfoTracker extends BaseTracker {
     } else if (Platform.isIOS) {
       final info = await _deviceInfo.iosInfo;
       addData(DeviceData(
-        model: info.model ?? 'Unknown',
+        model: info.model,
         os: 'iOS',
-        osVersion: info.systemVersion ?? 'Unknown',
+        osVersion: info.systemVersion,
         manufacturer: 'Apple',
         // iOS doesn't provide RAM info
       ));
@@ -87,7 +87,7 @@ class DeviceInfoTracker extends BaseTracker {
         manufacturer: 'Unknown',
       ));
     } else {
-      addData(DeviceData(
+      addData(const DeviceData(
         model: 'Unknown',
         os: 'Unknown',
         osVersion: 'Unknown',
