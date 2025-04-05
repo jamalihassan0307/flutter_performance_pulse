@@ -11,6 +11,58 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/to/develop-packages).
 -->
 
+<div align="center">
+  <kbd>
+    <img src="https://github.com/jamalihassan0307/flutter_performance_pulse/blob/main/image/logo.png?raw=true" width="250" alt="Flutter Performance Pulse"/>
+  </kbd>
+  
+  <h1>🧠 Flutter Performance Pulse 🧠</h1>
+  <p><i>Real-time performance monitoring toolkit for Flutter applications</i></p>
+  
+  <p align="center">
+    <a href="https://github.com/jamalihassan0307">
+      <img src="https://img.shields.io/badge/Created_by-Jam_Ali_Hassan-blue?style=for-the-badge&logo=github&logoColor=white" alt="Created by"/>
+    </a>
+  </p>
+
+  <p align="center">
+    <a href="https://github.com/jamalihassan0307">
+      <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+    </a>
+    <a href="https://www.linkedin.com/in/jamalihassan0307">
+      <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+    </a>
+    <a href="https://jamalihassan0307.github.io/portfolio.github.io">
+      <img src="https://img.shields.io/badge/Portfolio-255E63?style=for-the-badge&logo=About.me&logoColor=white" alt="Portfolio"/>
+    </a>
+  </p>
+
+  <p align="center">
+    <a href="https://pub.dev/packages/flutter_performance_pulse">
+      <img src="https://img.shields.io/pub/v/flutter_performance_pulse?style=for-the-badge&logo=dart&logoColor=white" alt="Pub Version"/>
+    </a>
+    <a href="https://flutter.dev">
+      <img src="https://img.shields.io/badge/Platform-Flutter-02569B?style=for-the-badge&logo=flutter" alt="Platform"/>
+    </a>
+    <a href="https://opensource.org/licenses/MIT">
+      <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="License: MIT"/>
+    </a>
+  </p>
+
+  <p align="center">
+    <a href="https://pub.dev/packages/flutter_performance_pulse">
+      <img src="https://img.shields.io/pub/likes/flutter_performance_pulse?style=for-the-badge&logo=flutter&logoColor=white&label=Pub%20Likes" alt="Pub Likes"/>
+    </a>
+    <a href="https://pub.dev/packages/flutter_performance_pulse">
+      <img src="https://img.shields.io/pub/points/flutter_performance_pulse?style=for-the-badge&logo=flutter&logoColor=white&label=Pub%20Points" alt="Pub Points"/>
+    </a>
+    <a href="https://pub.dev/packages/flutter_performance_pulse">
+      <img src="https://img.shields.io/pub/popularity/flutter_performance_pulse?style=for-the-badge&logo=flutter&logoColor=white&label=Popularity" alt="Popularity"/>
+    </a>
+  </p>
+
+</div>
+
 # Flutter Pulse 🧠
 
 A real-time, in-app performance monitoring toolkit for Flutter. Designed to help developers detect bottlenecks, debug in production, and ensure a smooth user experience across platforms.
