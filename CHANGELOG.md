@@ -1,3 +1,16 @@
+## 1.0.3
+
+* Added comprehensive disk usage monitoring:
+  - Real-time storage space tracking
+  - App-specific storage usage monitoring
+  - Visual disk usage graph with warning indicators
+  - Configurable disk usage warning threshold
+  - Automatic disk space monitoring every 5 seconds
+* Enhanced dashboard UI with disk metrics visualization
+* Added disk usage testing functionality in example app
+* Updated documentation with disk monitoring examples
+* Improved error handling for storage operations
+
 ## 1.0.2
 
 * Enhanced dashboard UI with icons and better visualization
