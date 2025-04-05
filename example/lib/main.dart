@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_performance_pulse/flutter_performance_pulse.dart';
 import 'package:dio/dio.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   // Initialize the performance monitor
-  PerformanceMonitor.instance.initialize(
+  await PerformanceMonitor.instance.initialize(
     config: const MonitorConfig(
       showMemory: true,
       showLogs: true,
@@ -26,11 +28,38 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Pulse Demo',
+      title: 'Flutter Performance Pulse Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      builder: (context, child) {
+        return Stack(
+          children: [
+            child!,
+            const Positioned(
+              right: 16,
+              bottom: 16,
+              child: Material(
+                elevation: 8,
+                borderRadius: BorderRadius.all(Radius.circular(8)),
+                child: PerformanceDashboard(
+                  showFPS: true,
+                  showCPU: true,
+                  theme: DashboardTheme(
+                    backgroundColor: Color(0xFF1E1E1E),
+                    textColor: Colors.white,
+                    warningColor: Colors.orange,
+                    errorColor: Colors.red,
+                    chartLineColor: Colors.blue,
+                    chartFillColor: Color(0x40808080),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
       home: const MyHomePage(),
     );
   }
@@ -50,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
   // Simulate heavy computation
   void _performHeavyTask() {
     setState(() => _isLoading = true);
-
+    
     // Create a large list and sort it
     final list = List.generate(1000000, (i) => 1000000 - i);
     list.sort();
@@ -72,43 +101,26 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Flutter Pulse Demo'),
+        title: const Text('Performance Pulse Demo'),
       ),
-      body: Stack(
-        children: [
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                if (_isLoading)
-                  const CircularProgressIndicator()
-                else
-                  ElevatedButton(
-                    onPressed: _performHeavyTask,
-                    child: const Text('Perform Heavy Task'),
-                  ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: _makeNetworkRequest,
-                  child: const Text('Make Network Request'),
-                ),
-              ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (_isLoading)
+              const CircularProgressIndicator()
+            else
+              ElevatedButton(
+                onPressed: _performHeavyTask,
+                child: const Text('Perform Heavy Task'),
+              ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _makeNetworkRequest,
+              child: const Text('Make Network Request'),
             ),
-          ),
-          // Add the performance dashboard
-          const PerformanceDashboard(
-            showFPS: true,
-            showCPU: true,
-            theme: DashboardTheme(
-              backgroundColor: Color(0xFF1E1E1E),
-              textColor: Colors.white,
-              warningColor: Colors.orange,
-              errorColor: Colors.red,
-              chartLineColor: Colors.blue,
-              chartFillColor: Color(0x40808080),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
