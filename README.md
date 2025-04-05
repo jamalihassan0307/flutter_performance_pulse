@@ -48,7 +48,7 @@ Add Flutter Pulse to your pubspec.yaml:
 
 ```yaml
 dependencies:
-  flutter_pulse: ^0.0.1
+  flutter_pulse: ^1.0.0
 ```
 
 ## Basic Usage 📱
