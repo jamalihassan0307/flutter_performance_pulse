@@ -68,46 +68,6 @@ and the Flutter guide for
 
 A real-time, in-app performance monitoring toolkit for Flutter. Designed to help developers detect bottlenecks, debug in production, and ensure a smooth user experience across platforms.
 
-## Features ✨
-
-- 📊 **Real-time FPS & Memory Usage Tracker**
-  - Live FPS monitoring with tooltips
-  - Heap memory usage tracking
-  - Visual performance graphs
-  - Optimized chart rendering
-
-- 🚀 **CPU & GPU Monitoring**
-  - CPU usage per core
-  - GPU rendering statistics
-  - Frame build time analysis
-  - Reduced monitoring overhead
-
-- 💾 **Disk Usage Monitor**
-  - Total storage space tracking
-  - Free space monitoring
-  - App storage usage analysis
-  - Visual disk usage graphs
-  - Configurable warning thresholds
-  - Automatic 5-second refresh
-  - Enhanced error recovery
-
-- 🛠️ **App Startup Time Analyzer**
-  - Cold start measurements
-  - Warm start tracking
-  - First frame render timing
-  - Performance optimization tips
-
-- 🔍 **Network Request Logger**
-  - API request monitoring
-  - Response time tracking
-  - Error logging
-  - Detailed metrics analysis
-
-- 📦 **Battery & Device Info**
-  - Battery status monitoring
-  - Device specifications
-  - System resource usage
-  - Platform-specific features
 
 ## Getting Started 🚀
 
@@ -115,7 +75,7 @@ Add Flutter Pulse to your pubspec.yaml:
 
 ```yaml
 dependencies:
-  flutter_performance_pulse: ^1.0.4
+  flutter_performance_pulse: ^1.0.5
 ```
 
 ## Usage Examples 📱
@@ -313,6 +273,47 @@ MaterialApp(
   },
 )
 ```
+
+## Features ✨
+
+- 📊 **Real-time FPS & Memory Usage Tracker**
+  - Live FPS monitoring with tooltips
+  - Heap memory usage tracking
+  - Visual performance graphs
+  - Optimized chart rendering
+
+- 🚀 **CPU & GPU Monitoring**
+  - CPU usage per core
+  - GPU rendering statistics
+  - Frame build time analysis
+  - Reduced monitoring overhead
+
+- 💾 **Disk Usage Monitor**
+  - Total storage space tracking
+  - Free space monitoring
+  - App storage usage analysis
+  - Visual disk usage graphs
+  - Configurable warning thresholds
+  - Automatic 5-second refresh
+  - Enhanced error recovery
+
+- 🛠️ **App Startup Time Analyzer**
+  - Cold start measurements
+  - Warm start tracking
+  - First frame render timing
+  - Performance optimization tips
+
+- 🔍 **Network Request Logger**
+  - API request monitoring
+  - Response time tracking
+  - Error logging
+  - Detailed metrics analysis
+
+- 📦 **Battery & Device Info**
+  - Battery status monitoring
+  - Device specifications
+  - System resource usage
+  - Platform-specific features
 
 ## Platform Support 🌍
 
