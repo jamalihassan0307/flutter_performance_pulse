@@ -79,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
   // Simulate heavy computation
   void _performHeavyTask() {
     setState(() => _isLoading = true);
-    
+
     // Create a large list and sort it
     final list = List.generate(1000000, (i) => 1000000 - i);
     list.sort();
