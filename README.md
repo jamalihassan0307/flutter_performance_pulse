@@ -63,7 +63,7 @@ and the Flutter guide for
 
 </div>
 
-# Flutter Pulse 🧠
+# Flutter Performance Pulse 🧠
 
 A real-time, in-app performance monitoring toolkit for Flutter. Designed to help developers detect bottlenecks, debug in production, and ensure a smooth user experience across platforms.
 
