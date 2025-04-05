@@ -51,7 +51,7 @@ class DeviceInfoTracker extends BaseTracker {
         os: 'Android',
         osVersion: info.version.release,
         manufacturer: info.manufacturer,
-        ramSize: info.totalMemory,
+        ramSize: info.systemMemory,
       ));
     } else if (Platform.isIOS) {
       final info = await _deviceInfo.iosInfo;
