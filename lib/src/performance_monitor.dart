@@ -33,10 +33,14 @@ class PerformanceMonitor {
   // Stream getters
   Stream<FpsData> get fpsStream => _fpsTracker.stream.cast<FpsData>();
   Stream<CpuData> get cpuStream => _cpuTracker.stream.cast<CpuData>();
-  Stream<MemoryData> get memoryStream => _memoryTracker.stream.cast<MemoryData>();
-  Stream<NetworkData> get networkStream => _networkTracker.stream.cast<NetworkData>();
-  Stream<BatteryData> get batteryStream => _batteryTracker.stream.cast<BatteryData>();
-  Stream<DeviceData> get deviceStream => _deviceInfoTracker.stream.cast<DeviceData>();
+  Stream<MemoryData> get memoryStream =>
+      _memoryTracker.stream.cast<MemoryData>();
+  Stream<NetworkData> get networkStream =>
+      _networkTracker.stream.cast<NetworkData>();
+  Stream<BatteryData> get batteryStream =>
+      _batteryTracker.stream.cast<BatteryData>();
+  Stream<DeviceData> get deviceStream =>
+      _deviceInfoTracker.stream.cast<DeviceData>();
 
   PerformanceMonitor._internal();
 

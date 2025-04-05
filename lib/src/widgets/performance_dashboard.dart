@@ -36,8 +36,12 @@ class PerformanceDashboard extends StatefulWidget {
 }
 
 class _PerformanceDashboardState extends State<PerformanceDashboard> {
-  final List<FlSpot> _fpsData = [const FlSpot(0, 60)]; // Start with a default value
-  final List<FlSpot> _cpuData = [const FlSpot(0, 0)]; // Start with a default value
+  final List<FlSpot> _fpsData = [
+    const FlSpot(0, 60)
+  ]; // Start with a default value
+  final List<FlSpot> _cpuData = [
+    const FlSpot(0, 0)
+  ]; // Start with a default value
   double _currentFps = 60;
   double _currentCpu = 0;
   static const int _maxDataPoints = 30;
@@ -105,14 +109,18 @@ class _PerformanceDashboardState extends State<PerformanceDashboard> {
               children: [
                 Icon(
                   Icons.speed,
-                  color: _currentFps < 45 ? widget.theme.warningColor : widget.theme.textColor,
+                  color: _currentFps < 45
+                      ? widget.theme.warningColor
+                      : widget.theme.textColor,
                   size: 16,
                 ),
                 const SizedBox(width: 4),
                 Text(
                   'FPS: ${_currentFps.toStringAsFixed(1)}',
                   style: TextStyle(
-                    color: _currentFps < 45 ? widget.theme.warningColor : widget.theme.textColor,
+                    color: _currentFps < 45
+                        ? widget.theme.warningColor
+                        : widget.theme.textColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
                   ),
@@ -129,14 +137,18 @@ class _PerformanceDashboardState extends State<PerformanceDashboard> {
               children: [
                 Icon(
                   Icons.memory,
-                  color: _currentCpu > 80 ? widget.theme.warningColor : widget.theme.textColor,
+                  color: _currentCpu > 80
+                      ? widget.theme.warningColor
+                      : widget.theme.textColor,
                   size: 16,
                 ),
                 const SizedBox(width: 4),
                 Text(
                   'CPU: ${_currentCpu.toStringAsFixed(1)}%',
                   style: TextStyle(
-                    color: _currentCpu > 80 ? widget.theme.warningColor : widget.theme.textColor,
+                    color: _currentCpu > 80
+                        ? widget.theme.warningColor
+                        : widget.theme.textColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
                   ),
