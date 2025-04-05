@@ -75,7 +75,7 @@ Add Flutter Pulse to your pubspec.yaml:
 
 ```yaml
 dependencies:
-  flutter_performance_pulse: ^1.0.5
+  flutter_performance_pulse: ^1.0.6
 ```
 
 ## Usage Examples 📱
@@ -281,12 +281,16 @@ MaterialApp(
   - Heap memory usage tracking
   - Visual performance graphs
   - Optimized chart rendering
+  - Gesture-controlled zoom
+  - Export capabilities
 
 - 🚀 **CPU & GPU Monitoring**
   - CPU usage per core
   - GPU rendering statistics
   - Frame build time analysis
   - Reduced monitoring overhead
+  - Custom event tracking
+  - Performance alerts
 
 - 💾 **Disk Usage Monitor**
   - Total storage space tracking
@@ -296,24 +300,31 @@ MaterialApp(
   - Configurable warning thresholds
   - Automatic 5-second refresh
   - Enhanced error recovery
+  - Storage trend analysis
 
 - 🛠️ **App Startup Time Analyzer**
   - Cold start measurements
   - Warm start tracking
   - First frame render timing
   - Performance optimization tips
+  - Startup bottleneck detection
+  - Custom event markers
 
 - 🔍 **Network Request Logger**
   - API request monitoring
   - Response time tracking
   - Error logging
   - Detailed metrics analysis
+  - Request filtering
+  - Export capabilities
 
 - 📦 **Battery & Device Info**
   - Battery status monitoring
   - Device specifications
   - System resource usage
   - Platform-specific features
+  - Temperature monitoring
+  - Power usage analytics
 
 ## Platform Support 🌍
 
