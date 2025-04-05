@@ -65,7 +65,7 @@ class DiskTracker extends BaseTracker {
       ));
     } catch (e) {
       // Handle error
-      print('Error getting disk usage: $e');
+      // print('Error getting disk usage: $e');
     }
   }
 }
