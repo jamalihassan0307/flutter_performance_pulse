@@ -13,6 +13,9 @@ class PerformanceDashboard extends StatefulWidget {
   /// Whether to show CPU metrics
   final bool showCPU;
 
+  /// Whether to show disk usage metrics
+  final bool showDisk;
+
   /// The theme for the dashboard
   final DashboardTheme theme;
 
@@ -21,6 +24,7 @@ class PerformanceDashboard extends StatefulWidget {
     super.key,
     this.showFPS = true,
     this.showCPU = true,
+    this.showDisk = true,
     this.theme = const DashboardTheme(
       backgroundColor: Color(0xFF1E1E1E),
       textColor: Colors.white,
@@ -42,8 +46,10 @@ class _PerformanceDashboardState extends State<PerformanceDashboard> {
   final List<FlSpot> _cpuData = [
     const FlSpot(0, 0)
   ]; // Start with a default value
+  final List<FlSpot> _diskData = [const FlSpot(0, 0)];
   double _currentFps = 60;
   double _currentCpu = 0;
+  double _currentDiskUsage = 0;
   static const int _maxDataPoints = 30;
 
   @override
@@ -69,6 +75,16 @@ class _PerformanceDashboardState extends State<PerformanceDashboard> {
         setState(() {
           _currentCpu = data.usage;
           _addDataPoint(_cpuData, data.usage);
+        });
+      });
+    }
+
+    if (widget.showDisk) {
+      PerformanceMonitor.instance.diskStream.listen((data) {
+        if (!mounted) return;
+        setState(() {
+          _currentDiskUsage = data.usagePercentage;
+          _addDataPoint(_diskData, data.usagePercentage);
         });
       });
     }
@@ -158,6 +174,34 @@ class _PerformanceDashboardState extends State<PerformanceDashboard> {
             const SizedBox(height: 4),
             _buildCPUChart(),
           ],
+          if (widget.showDisk) ...[
+            const SizedBox(height: 12),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  Icons.storage,
+                  color: _currentDiskUsage > 90
+                      ? widget.theme.warningColor
+                      : widget.theme.textColor,
+                  size: 16,
+                ),
+                const SizedBox(width: 4),
+                Text(
+                  'Disk: ${_currentDiskUsage.toStringAsFixed(1)}%',
+                  style: TextStyle(
+                    color: _currentDiskUsage > 90
+                        ? widget.theme.warningColor
+                        : widget.theme.textColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 4),
+            _buildDiskChart(),
+          ],
         ],
       ),
     );
@@ -206,6 +250,35 @@ class _PerformanceDashboardState extends State<PerformanceDashboard> {
           lineBarsData: [
             LineChartBarData(
               spots: _cpuData,
+              isCurved: true,
+              color: widget.theme.chartLineColor,
+              barWidth: 2,
+              dotData: const FlDotData(show: false),
+              belowBarData: BarAreaData(
+                show: true,
+                color: widget.theme.chartFillColor,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDiskChart() {
+    return SizedBox(
+      width: 160,
+      height: 40,
+      child: LineChart(
+        LineChartData(
+          minY: 0,
+          maxY: 100,
+          gridData: const FlGridData(show: false),
+          titlesData: const FlTitlesData(show: false),
+          borderData: FlBorderData(show: false),
+          lineBarsData: [
+            LineChartBarData(
+              spots: _diskData,
               isCurved: true,
               color: widget.theme.chartLineColor,
               barWidth: 2,
