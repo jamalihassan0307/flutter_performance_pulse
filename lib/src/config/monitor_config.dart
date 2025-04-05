@@ -1,4 +1,4 @@
-import 'package:flutter_pulse/src/models/log_level.dart';
+import 'package:flutter_performance_pulse/src/models/log_level.dart';
 
 /// Configuration class for the Performance Monitor
 class MonitorConfig {
