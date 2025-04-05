@@ -38,7 +38,10 @@ class PerformanceDashboard extends StatefulWidget {
 class _PerformanceDashboardState extends State<PerformanceDashboard> {
   final List<FlSpot> _fpsData = [];
   final List<FlSpot> _cpuData = [];
-  final ScrollController _scrollController = ScrollController();
+  double _currentFps = 0;
+  double _currentCpu = 0;
+  int _dataIndex = 0;
+  static const int _maxDataPoints = 50;
 
   @override
   void initState() {
@@ -50,18 +53,34 @@ class _PerformanceDashboardState extends State<PerformanceDashboard> {
     final monitor = PerformanceMonitor.instance;
 
     if (widget.showFPS) {
-      // Listen to FPS updates
+      monitor.fpsStream.listen((data) {
+        if (!mounted) return;
+        setState(() {
+          _currentFps = data.fps;
+          _addDataPoint(_fpsData, data.fps);
+        });
+      });
     }
 
     if (widget.showCPU) {
-      // Listen to CPU updates
+      monitor.cpuStream.listen((data) {
+        if (!mounted) return;
+        setState(() {
+          _currentCpu = data.usage;
+          _addDataPoint(_cpuData, data.usage);
+        });
+      });
     }
   }
 
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
+  void _addDataPoint(List<FlSpot> dataList, double value) {
+    if (dataList.length >= _maxDataPoints) {
+      dataList.removeAt(0);
+      for (int i = 0; i < dataList.length; i++) {
+        dataList[i] = FlSpot(i.toDouble(), dataList[i].y);
+      }
+    }
+    dataList.add(FlSpot(dataList.length.toDouble(), value));
   }
 
   @override
@@ -83,8 +102,29 @@ class _PerformanceDashboardState extends State<PerformanceDashboard> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (widget.showFPS) _buildFPSChart(),
-          if (widget.showCPU) _buildCPUChart(),
+          if (widget.showFPS) ...[
+            Text(
+              'FPS: ${_currentFps.toStringAsFixed(1)}',
+              style: TextStyle(
+                color: _currentFps < 45 ? widget.theme.warningColor : widget.theme.textColor,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 8),
+            _buildFPSChart(),
+            const SizedBox(height: 16),
+          ],
+          if (widget.showCPU) ...[
+            Text(
+              'CPU: ${_currentCpu.toStringAsFixed(1)}%',
+              style: TextStyle(
+                color: _currentCpu > 80 ? widget.theme.warningColor : widget.theme.textColor,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 8),
+            _buildCPUChart(),
+          ],
         ],
       ),
     );
@@ -96,6 +136,8 @@ class _PerformanceDashboardState extends State<PerformanceDashboard> {
       height: 100,
       child: LineChart(
         LineChartData(
+          minY: 0,
+          maxY: 120,
           gridData: const FlGridData(show: false),
           titlesData: const FlTitlesData(show: false),
           borderData: FlBorderData(show: false),
@@ -123,6 +165,8 @@ class _PerformanceDashboardState extends State<PerformanceDashboard> {
       height: 100,
       child: LineChart(
         LineChartData(
+          minY: 0,
+          maxY: 100,
           gridData: const FlGridData(show: false),
           titlesData: const FlTitlesData(show: false),
           borderData: FlBorderData(show: false),
