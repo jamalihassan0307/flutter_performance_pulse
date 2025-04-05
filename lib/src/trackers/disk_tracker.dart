@@ -54,8 +54,8 @@ class DiskTracker extends BaseTracker {
       // In a real implementation, you would use platform-specific methods
       // to get accurate storage information
       const totalSpace = 64 * 1024 * 1024 * 1024; // 64 GB
-      final usedSpace = totalSpace ~/ 2; // Simulated 50% usage
-      final freeSpace = totalSpace - usedSpace;
+      const usedSpace = totalSpace ~/ 2; // Simulated 50% usage
+      const freeSpace = totalSpace - usedSpace;
 
       addData(DiskData(
         totalSpace: totalSpace,
