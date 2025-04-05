@@ -1,0 +1,25 @@
+
+name: flutter_pulse_example
+description: Example app for Flutter Pulse package
+publish_to: none
+
+
+
+environment:
+  sdk: ^3.5.3
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_pulse:
+    path: ../
+  dio: ^5.4.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true 
