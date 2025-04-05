@@ -1,3 +1,31 @@
+## 1.0.6
+
+* Performance Enhancements:
+  - Optimized dashboard rendering performance
+  - Reduced memory footprint
+  - Improved data collection efficiency
+  - Enhanced chart update mechanism
+* UI/UX Improvements:
+  - Added responsive layout support
+  - Improved accessibility features
+  - Enhanced dark mode contrast
+  - Added gesture controls for charts
+* Feature Updates:
+  - Added performance metric export options
+  - Enhanced data filtering capabilities
+  - Improved error reporting system
+  - Added custom event tracking
+* Documentation:
+  - Streamlined installation guide
+  - Added performance optimization tips
+  - Updated platform-specific guides
+  - Enhanced API documentation
+* Bug Fixes:
+  - Resolved memory leak in chart updates
+  - Fixed theme switching issues
+  - Improved error handling
+  - Enhanced platform compatibility
+
 ## 1.0.5
 
 * Documentation Enhancements:
