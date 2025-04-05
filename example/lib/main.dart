@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pulse/flutter_pulse.dart';
+import 'package:flutter_performance_pulse/flutter_pulse.dart';
 import 'package:dio/dio.dart';
 
 void main() {
