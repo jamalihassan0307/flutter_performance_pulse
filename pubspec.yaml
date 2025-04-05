@@ -1,11 +1,9 @@
 name: flutter_performance_pulse
-description: "A powerful, real-time performance monitoring toolkit for Flutter apps. Track FPS, memory, CPU, network, battery, and disk metrics with beautiful visualizations. Built by jamalihassan0307"
+description: A real-time performance monitoring toolkit for Flutter apps by jamalihassan0307. Track FPS, memory, CPU, network, and system metrics with visualizations.
 version: 1.0.5
 homepage: https://github.com/jamalihassan0307/flutter_performance_pulse
 repository: https://github.com/jamalihassan0307/flutter_performance_pulse
 documentation: https://github.com/jamalihassan0307/flutter_performance_pulse/blob/main/README.md
-issue_tracker: https://github.com/jamalihassan0307/flutter_performance_pulse/issues
-
 
 environment:
   sdk: ^3.5.3
@@ -14,24 +12,23 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # For charts and visualizations
-  fl_chart: ^0.66.2
-  # For isolate computations
+  # UI and Visualization
+  fl_chart: ^0.70.2
+
+  # System Monitoring
+  device_info_plus: ^11.3.0
+  battery_plus: ^6.2.1
   compute: ^1.0.2
-  # For device info
-  device_info_plus: ^9.1.2
-  # For battery info
-  battery_plus: ^5.0.3
-  # For network monitoring
+
+  # Network and Storage
   dio: ^5.4.1
-  # For local storage
   shared_preferences: ^2.2.2
   path_provider: ^2.1.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
