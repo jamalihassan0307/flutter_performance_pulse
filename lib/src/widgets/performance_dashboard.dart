@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import '../theme/dashboard_theme.dart';
 import '../performance_monitor.dart';
+import '../trackers/fps_tracker.dart';
+import '../trackers/cpu_tracker.dart';
 
 /// A widget that displays performance metrics
 class PerformanceDashboard extends StatefulWidget {
@@ -36,12 +38,11 @@ class PerformanceDashboard extends StatefulWidget {
 }
 
 class _PerformanceDashboardState extends State<PerformanceDashboard> {
-  final List<FlSpot> _fpsData = [];
-  final List<FlSpot> _cpuData = [];
-  double _currentFps = 0;
+  final List<FlSpot> _fpsData = [const FlSpot(0, 60)]; // Start with a default value
+  final List<FlSpot> _cpuData = [const FlSpot(0, 0)]; // Start with a default value
+  double _currentFps = 60;
   double _currentCpu = 0;
-  int _dataIndex = 0;
-  static const int _maxDataPoints = 50;
+  static const int _maxDataPoints = 30;
 
   @override
   void initState() {
@@ -50,10 +51,8 @@ class _PerformanceDashboardState extends State<PerformanceDashboard> {
   }
 
   void _startListening() {
-    final monitor = PerformanceMonitor.instance;
-
     if (widget.showFPS) {
-      monitor.fpsStream.listen((data) {
+      PerformanceMonitor.instance.fpsStream.listen((data) {
         if (!mounted) return;
         setState(() {
           _currentFps = data.fps;
@@ -63,7 +62,7 @@ class _PerformanceDashboardState extends State<PerformanceDashboard> {
     }
 
     if (widget.showCPU) {
-      monitor.cpuStream.listen((data) {
+      PerformanceMonitor.instance.cpuStream.listen((data) {
         if (!mounted) return;
         setState(() {
           _currentCpu = data.usage;
@@ -86,7 +85,7 @@ class _PerformanceDashboardState extends State<PerformanceDashboard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: widget.theme.backgroundColor,
         borderRadius: BorderRadius.circular(8),
@@ -99,30 +98,54 @@ class _PerformanceDashboardState extends State<PerformanceDashboard> {
         ],
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (widget.showFPS) ...[
-            Text(
-              'FPS: ${_currentFps.toStringAsFixed(1)}',
-              style: TextStyle(
-                color: _currentFps < 45 ? widget.theme.warningColor : widget.theme.textColor,
-                fontWeight: FontWeight.bold,
-              ),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  Icons.speed,
+                  color: _currentFps < 45 ? widget.theme.warningColor : widget.theme.textColor,
+                  size: 16,
+                ),
+                const SizedBox(width: 4),
+                Text(
+                  'FPS: ${_currentFps.toStringAsFixed(1)}',
+                  style: TextStyle(
+                    color: _currentFps < 45 ? widget.theme.warningColor : widget.theme.textColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 4),
             _buildFPSChart(),
-            const SizedBox(height: 16),
+            const SizedBox(height: 12),
           ],
           if (widget.showCPU) ...[
-            Text(
-              'CPU: ${_currentCpu.toStringAsFixed(1)}%',
-              style: TextStyle(
-                color: _currentCpu > 80 ? widget.theme.warningColor : widget.theme.textColor,
-                fontWeight: FontWeight.bold,
-              ),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  Icons.memory,
+                  color: _currentCpu > 80 ? widget.theme.warningColor : widget.theme.textColor,
+                  size: 16,
+                ),
+                const SizedBox(width: 4),
+                Text(
+                  'CPU: ${_currentCpu.toStringAsFixed(1)}%',
+                  style: TextStyle(
+                    color: _currentCpu > 80 ? widget.theme.warningColor : widget.theme.textColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 4),
             _buildCPUChart(),
           ],
         ],
@@ -132,8 +155,8 @@ class _PerformanceDashboardState extends State<PerformanceDashboard> {
 
   Widget _buildFPSChart() {
     return SizedBox(
-      width: 200,
-      height: 100,
+      width: 160,
+      height: 40,
       child: LineChart(
         LineChartData(
           minY: 0,
@@ -161,8 +184,8 @@ class _PerformanceDashboardState extends State<PerformanceDashboard> {
 
   Widget _buildCPUChart() {
     return SizedBox(
-      width: 200,
-      height: 100,
+      width: 160,
+      height: 40,
       child: LineChart(
         LineChartData(
           minY: 0,
