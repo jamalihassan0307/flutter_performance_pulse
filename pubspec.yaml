@@ -1,8 +1,8 @@
-name: flutter_pulse
+name: flutter_performance_pulse
 description: "A real-time, in-app performance monitoring toolkit for Flutter. Helps developers detect bottlenecks, debug in production, and ensure smooth user experience across platforms."
 version: 1.0.0
-homepage: https://github.com/yourusername/flutter_pulse
-repository: https://github.com/yourusername/flutter_pulse
+homepage: https://github.com/jamalihassan0307/flutter_performance_pulse
+repository: https://github.com/jamalihassan0307/flutter_performance_pulse
 
 environment:
   sdk: ^3.5.3
