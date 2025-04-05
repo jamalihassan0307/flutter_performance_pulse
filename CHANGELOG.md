@@ -1,3 +1,10 @@
+## 1.0.1
+
+* Performance improvements and optimizations
+* Updated documentation and examples
+* Fixed package name references
+* Improved error handling in device info collection
+
 ## 1.0.0
 
 Initial release of Flutter Pulse with the following features:
