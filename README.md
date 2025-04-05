@@ -13,7 +13,8 @@ and the Flutter guide for
 
 <div align="center">
   <kbd>
-    <img src="https://github.com/jamalihassan0307/flutter_performance_pulse/blob/main/image/logo.png?raw=true" width="250" alt="Flutter Performance Pulse"/>
+  
+    <img src="https://github.com/jamalihassan0307/flutter_performance_pulse/blob/main/image/image.jpg?raw=true" width="250" alt="Flutter Performance Pulse"/>
   </kbd>
   
   <h1>🧠 Flutter Performance Pulse 🧠</h1>
