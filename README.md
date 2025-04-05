@@ -27,6 +27,14 @@ A real-time, in-app performance monitoring toolkit for Flutter. Designed to help
   - GPU rendering statistics
   - Frame build time analysis
 
+- 💾 **Disk Usage Monitor**
+  - Total storage space tracking
+  - Free space monitoring
+  - App storage usage analysis
+  - Visual disk usage graphs
+  - Configurable warning thresholds
+  - Automatic 5-second refresh
+
 - 🛠️ **App Startup Time Analyzer**
   - Cold start measurements
   - Warm start tracking
@@ -42,20 +50,13 @@ A real-time, in-app performance monitoring toolkit for Flutter. Designed to help
   - Device specifications
   - System resource usage
 
-- - 💾 **Disk Usage Monitor**
-  - Total storage space
-  - Free storage space
-  - Used storage space
-  - App-specific storage usage
-  - Usage percentage tracking
-
 ## Getting Started 🚀
 
 Add Flutter Pulse to your pubspec.yaml:
 
 ```yaml
 dependencies:
-  flutter_performance_pulse: ^1.0.2
+  flutter_performance_pulse: ^1.0.3
 ```
 
 ## Usage Examples 📱
@@ -96,6 +97,7 @@ class MyApp extends StatelessWidget {
                 child: PerformanceDashboard(
                   showFPS: true,
                   showCPU: true,
+                  showDisk: true, // Enable disk monitoring
                   theme: DashboardTheme(
                     backgroundColor: Color(0xFF1E1E1E),
                     textColor: Colors.white,
@@ -130,11 +132,13 @@ await PerformanceMonitor.instance.initialize(
     // Performance thresholds
     fpsWarningThreshold: 45,
     memoryWarningThreshold: 500 * 1024 * 1024, // 500MB
+    diskWarningThreshold: 85.0, // Warn at 85% disk usage
     
     // Feature toggles
     enableNetworkMonitoring: true,
     enableBatteryMonitoring: true,
     enableDeviceInfo: true,
+    enableDiskMonitoring: true,
     
     // Logging options
     logLevel: LogLevel.verbose,
@@ -149,6 +153,7 @@ await PerformanceMonitor.instance.initialize(
 PerformanceDashboard(
   showFPS: true,
   showCPU: true,
+  showDisk: true,
   theme: DashboardTheme(
     backgroundColor: Colors.black87,
     textColor: Colors.white,
@@ -166,6 +171,7 @@ PerformanceDashboard(
 PerformanceDashboard(
   showFPS: true,
   showCPU: true,
+  showDisk: true,
   theme: DashboardTheme.light(),
 )
 ```
@@ -176,8 +182,43 @@ PerformanceDashboard(
 PerformanceDashboard(
   showFPS: true,
   showCPU: true,
+  showDisk: true,
   theme: DashboardTheme.dark(),
 )
+```
+
+### Disk Monitoring Example
+
+```dart
+// Initialize with disk monitoring
+await PerformanceMonitor.instance.initialize(
+  config: MonitorConfig(
+    enableDiskMonitoring: true,
+    diskWarningThreshold: 85.0, // Show warning when disk usage exceeds 85%
+  ),
+);
+
+// Add disk monitoring to dashboard
+PerformanceDashboard(
+  showDisk: true,
+  theme: DashboardTheme.dark(),
+)
+
+// Test disk operations
+Future<void> testDiskOperations() async {
+  final appDir = await getApplicationDocumentsDirectory();
+  final testFile = File('${appDir.path}/test_file.txt');
+  
+  // Write test data
+  await testFile.writeAsString('Test data');
+  
+  // Get file stats
+  final fileStats = await testFile.stat();
+  print('File size: ${fileStats.size} bytes');
+  
+  // Clean up
+  await testFile.delete();
+}
 ```
 
 ### Positioning the Dashboard
