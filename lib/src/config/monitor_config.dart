@@ -35,6 +35,12 @@ class MonitorConfig {
   /// Whether to export logs
   final bool exportLogs;
 
+  /// Whether to enable disk usage monitoring
+  final bool enableDiskMonitoring;
+
+  /// Disk usage warning threshold (percentage)
+  final double diskWarningThreshold;
+
   /// Creates a new monitor configuration
   const MonitorConfig({
     this.showMemory = true,
@@ -48,6 +54,8 @@ class MonitorConfig {
     this.enableDeviceInfo = true,
     this.logLevel = LogLevel.info,
     this.exportLogs = false,
+    this.enableDiskMonitoring = true,
+    this.diskWarningThreshold = 90.0, // Warn at 90% usage
   });
 
   /// Creates a copy of this configuration with the given fields replaced
@@ -63,6 +71,8 @@ class MonitorConfig {
     bool? enableDeviceInfo,
     LogLevel? logLevel,
     bool? exportLogs,
+    bool? enableDiskMonitoring,
+    double? diskWarningThreshold,
   }) {
     return MonitorConfig(
       showMemory: showMemory ?? this.showMemory,
@@ -79,6 +89,8 @@ class MonitorConfig {
       enableDeviceInfo: enableDeviceInfo ?? this.enableDeviceInfo,
       logLevel: logLevel ?? this.logLevel,
       exportLogs: exportLogs ?? this.exportLogs,
+      enableDiskMonitoring: enableDiskMonitoring ?? this.enableDiskMonitoring,
+      diskWarningThreshold: diskWarningThreshold ?? this.diskWarningThreshold,
     );
   }
 }
