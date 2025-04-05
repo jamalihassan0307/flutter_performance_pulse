@@ -20,15 +20,11 @@ class BatteryData {
 class BatteryTracker extends BaseTracker {
   final Battery _battery = Battery();
   Stream<BatteryState>? _stateStream;
-  Stream<int>? _levelStream;
 
   @override
   void onStart() {
     _stateStream = _battery.onBatteryStateChanged;
-    _levelStream = _battery.onBatteryLevelChanged;
-
     _stateStream?.listen(_onBatteryStateChanged);
-    _levelStream?.listen(_onBatteryLevelChanged);
 
     // Get initial values
     _updateBatteryInfo();
@@ -37,7 +33,6 @@ class BatteryTracker extends BaseTracker {
   @override
   void onStop() {
     _stateStream = null;
-    _levelStream = null;
   }
 
   Future<void> _updateBatteryInfo() async {
@@ -51,10 +46,6 @@ class BatteryTracker extends BaseTracker {
   }
 
   void _onBatteryStateChanged(BatteryState state) {
-    _updateBatteryInfo();
-  }
-
-  void _onBatteryLevelChanged(int level) {
     _updateBatteryInfo();
   }
 } 
