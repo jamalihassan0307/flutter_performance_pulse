@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import '../theme/dashboard_theme.dart';
 import '../performance_monitor.dart';
-import '../trackers/fps_tracker.dart';
-import '../trackers/cpu_tracker.dart';
 
 /// A widget that displays performance metrics
 class PerformanceDashboard extends StatefulWidget {
