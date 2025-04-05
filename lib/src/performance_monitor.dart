@@ -8,6 +8,7 @@ import 'package:flutter_performance_pulse/src/models/log_level.dart';
 import 'package:flutter_performance_pulse/src/trackers/battery_tracker.dart';
 import 'package:flutter_performance_pulse/src/trackers/cpu_tracker.dart';
 import 'package:flutter_performance_pulse/src/trackers/device_info_tracker.dart';
+import 'package:flutter_performance_pulse/src/trackers/disk_tracker.dart';
 import 'package:flutter_performance_pulse/src/trackers/fps_tracker.dart';
 import 'package:flutter_performance_pulse/src/trackers/memory_tracker.dart';
 import 'package:flutter_performance_pulse/src/trackers/network_tracker.dart';
@@ -29,6 +30,7 @@ class PerformanceMonitor {
   late NetworkTracker _networkTracker;
   late BatteryTracker _batteryTracker;
   late DeviceInfoTracker _deviceInfoTracker;
+  late DiskTracker _diskTracker;
 
   // Stream getters
   Stream<FpsData> get fpsStream => _fpsTracker.stream.cast<FpsData>();
@@ -41,6 +43,7 @@ class PerformanceMonitor {
       _batteryTracker.stream.cast<BatteryData>();
   Stream<DeviceData> get deviceStream =>
       _deviceInfoTracker.stream.cast<DeviceData>();
+  Stream<DiskData> get diskStream => _diskTracker.stream.cast<DiskData>();
 
   PerformanceMonitor._internal();
 
@@ -68,6 +71,7 @@ class PerformanceMonitor {
     _batteryTracker = BatteryTracker();
     _deviceInfoTracker = DeviceInfoTracker();
     _cpuTracker = CpuTracker();
+    _diskTracker = DiskTracker();
   }
 
   void _startTrackers() {
@@ -88,6 +92,10 @@ class PerformanceMonitor {
 
     if (_config.enableDeviceInfo) {
       _deviceInfoTracker.start();
+    }
+
+    if (_config.enableDiskMonitoring) {
+      _diskTracker.start();
     }
   }
 
@@ -129,5 +137,6 @@ class PerformanceMonitor {
     _networkTracker.dispose();
     _batteryTracker.dispose();
     _deviceInfoTracker.dispose();
+    _diskTracker.dispose();
   }
 }
