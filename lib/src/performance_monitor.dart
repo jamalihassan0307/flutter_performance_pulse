@@ -30,6 +30,14 @@ class PerformanceMonitor {
   late BatteryTracker _batteryTracker;
   late DeviceInfoTracker _deviceInfoTracker;
 
+  // Stream getters
+  Stream<FpsData> get fpsStream => _fpsTracker.stream.cast<FpsData>();
+  Stream<CpuData> get cpuStream => _cpuTracker.stream.cast<CpuData>();
+  Stream<MemoryData> get memoryStream => _memoryTracker.stream.cast<MemoryData>();
+  Stream<NetworkData> get networkStream => _networkTracker.stream.cast<NetworkData>();
+  Stream<BatteryData> get batteryStream => _batteryTracker.stream.cast<BatteryData>();
+  Stream<DeviceData> get deviceStream => _deviceInfoTracker.stream.cast<DeviceData>();
+
   PerformanceMonitor._internal();
 
   /// Initialize the performance monitor with the given configuration
@@ -44,30 +52,39 @@ class PerformanceMonitor {
 
     // Initialize trackers
     _initializeTrackers();
+    _startTrackers();
 
     debugPrint('PerformanceMonitor initialized');
   }
 
   void _initializeTrackers() {
+    _memoryTracker = MemoryTracker();
+    _fpsTracker = FpsTracker(warningThreshold: _config.fpsWarningThreshold);
+    _networkTracker = NetworkTracker();
+    _batteryTracker = BatteryTracker();
+    _deviceInfoTracker = DeviceInfoTracker();
+    _cpuTracker = CpuTracker();
+  }
+
+  void _startTrackers() {
     if (_config.showMemory) {
-      _memoryTracker = MemoryTracker();
+      _memoryTracker.start();
     }
 
-    _fpsTracker = FpsTracker(warningThreshold: _config.fpsWarningThreshold);
+    _fpsTracker.start();
+    _cpuTracker.start();
 
     if (_config.enableNetworkMonitoring) {
-      _networkTracker = NetworkTracker();
+      _networkTracker.start();
     }
 
     if (_config.enableBatteryMonitoring) {
-      _batteryTracker = BatteryTracker();
+      _batteryTracker.start();
     }
 
     if (_config.enableDeviceInfo) {
-      _deviceInfoTracker = DeviceInfoTracker();
+      _deviceInfoTracker.start();
     }
-
-    _cpuTracker = CpuTracker();
   }
 
   /// Get the current configuration
@@ -102,6 +119,11 @@ class PerformanceMonitor {
   /// Dispose the performance monitor and its trackers
   void dispose() {
     _isInitialized = false;
-    // Dispose trackers
+    _memoryTracker.dispose();
+    _fpsTracker.dispose();
+    _cpuTracker.dispose();
+    _networkTracker.dispose();
+    _batteryTracker.dispose();
+    _deviceInfoTracker.dispose();
   }
 }
