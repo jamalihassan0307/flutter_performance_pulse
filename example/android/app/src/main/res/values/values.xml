@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">your_web_client_id</string>
+    <string name="gcm_defaultSenderId" translatable="false">your_sender_id</string>
+    <string name="google_api_key" translatable="false">your_api_key</string>
+    <string name="google_app_id" translatable="false">your_app_id</string>
+    <string name="google_crash_reporting_api_key" translatable="false">your_crash_reporting_key</string>
+    <string name="google_storage_bucket" translatable="false">your_storage_bucket</string>
+    <string name="project_id" translatable="false">your_project_id</string>
+</resources> 

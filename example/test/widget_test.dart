@@ -1,23 +1,30 @@
+// This is a basic Flutter widget test.
+//
+// To perform an interaction with a widget in your test, use the WidgetTester
+// utility in the flutter_test package. For example, you can send tap and scroll
+// gestures. You can also use WidgetTester to find child widgets in the widget
+// tree, read text, and verify that the values of widget properties are correct.
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_performance_pulse_example/main.dart';
+
+import 'package:EasyVid/main.dart';
 
 void main() {
-  testWidgets('Example app smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+   
+    await tester.pumpWidget(MyApp());
 
-    // Verify that our buttons are present
-    expect(find.text('Perform Heavy Task'), findsOneWidget);
-    expect(find.text('Make Network Request'), findsOneWidget);
+   
+    expect(find.text('0'), findsOneWidget);
+    expect(find.text('1'), findsNothing);
 
-    // Tap the heavy task button and verify loading state
-    await tester.tap(find.text('Perform Heavy Task'));
+   
+    await tester.tap(find.byIcon(Icons.add));
     await tester.pump();
-    expect(find.byType(CircularProgressIndicator), findsOneWidget);
 
-    // Wait for the task to complete
-    await tester.pumpAndSettle();
-    expect(find.text('Perform Heavy Task'), findsOneWidget);
+   
+    expect(find.text('0'), findsNothing);
+    expect(find.text('1'), findsOneWidget);
   });
 }
